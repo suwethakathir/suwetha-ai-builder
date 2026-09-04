@@ -140,7 +140,9 @@ function Portfolio() {
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
-                href="#projects"
+                href={LINKS.resume}
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-card transition-colors hover:bg-primary/90"
               >
                 View My Work <ArrowRight className="size-4" />
@@ -172,39 +174,26 @@ function Portfolio() {
             </div>
           </div>
 
-          {/* Subtle AI/software visual: terminal-style pipeline card */}
-          <div className="rounded-xl border border-border bg-card p-5 font-mono text-[13px] leading-relaxed shadow-lift">
-            <div className="flex items-center gap-1.5 pb-4">
-              <span className="size-2.5 rounded-full bg-border" />
-              <span className="size-2.5 rounded-full bg-border" />
-              <span className="size-2.5 rounded-full bg-primary/40" />
-              <span className="ml-2 text-xs text-muted-foreground">pipeline.py</span>
-            </div>
-            <pre className="overflow-x-auto text-muted-foreground">
-              <code>{`agent = Graph(
-  retrieve = RAG(index),
-  search   = Tavily(),
-  explain  = Feynman(),
-)
-
-vision = Pipeline([
-  Preprocess(),
-  Detect("ingredients"),
-  Classify("allergens"),
-])
-
-> latency: < 5s
-> status : shipped`}</code>
-            </pre>
-            <div className="mt-5 grid grid-cols-3 gap-3 border-t border-border pt-4 font-sans">
+          <div className="relative">
+            <div aria-hidden className="absolute inset-x-8 inset-y-5 rounded-xl border border-primary/20 bg-accent/60" />
+            <div className="relative grid gap-3 rounded-xl border border-border bg-card p-4 shadow-lift sm:p-5">
               {[
-                ["9.28", "CGPA / 10"],
-                ["3", "Internships & hackathons"],
-                ["20+", "Certifications"],
-              ].map(([v, l]) => (
-                <div key={l}>
-                  <p className="text-lg font-semibold">{v}</p>
-                  <p className="text-xs text-muted-foreground">{l}</p>
+                { icon: GraduationCap, value: "9.28", label: "CGPA", detail: "out of 10" },
+                { icon: Briefcase, value: "3", label: "Internships", detail: "industry experiences" },
+                { icon: Award, value: "20+", label: "Certifications", detail: "and counting" },
+              ].map(({ icon: Icon, value, label, detail }) => (
+                <div
+                  key={label}
+                  className="flex min-h-24 items-center gap-4 rounded-lg border border-border bg-background p-4 transition-colors hover:border-primary/40"
+                >
+                  <span className="grid size-11 shrink-0 place-items-center rounded-lg bg-accent text-primary">
+                    <Icon className="size-5" aria-hidden />
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-2xl font-semibold leading-none text-foreground">{value}</p>
+                    <p className="mt-2 text-sm font-semibold text-foreground">{label}</p>
+                    <p className="text-xs text-muted-foreground">{detail}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -394,8 +383,8 @@ vision = Pipeline([
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               “AI Powered Ingredient Detector for Allergies” — filed August 2025.
             </p>
-            <span className="mt-5 inline-flex items-center gap-2 rounded-md border border-dashed border-border px-4 py-2 text-sm text-muted-foreground">
-              Application link to be added
+            <span className="mt-5 inline-flex items-center gap-2 rounded-md border border-border bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground">
+              Filed · August 2025
             </span>
           </article>
         </div>

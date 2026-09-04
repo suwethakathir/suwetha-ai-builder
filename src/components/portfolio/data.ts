@@ -4,8 +4,7 @@ export const LINKS = {
   email: "suwethakathir@gmail.com",
   phone: "+91 9345531710",
   paper: "https://ieeexplore.ieee.org/document/11019718",
-  // PLACEHOLDER: replace with hosted resume file URL
-  resume: "https://ieeexplore.ieee.org/document/11019718",
+  resume: "https://drive.google.com/file/d/1BGVpmWb8xzeEjDc3enitLbNOwRFtwtSs/view",
 };
 
 export const SECTIONS = [
